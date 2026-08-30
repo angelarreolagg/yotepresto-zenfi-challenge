@@ -93,7 +93,7 @@ export function InsightLine({ insight }: InsightLineProps) {
     >
       <div className="insight-body relative p-2.5 sm:p-3" data-revealed={revealed}>
         <p
-          className="pr-7 pl-11 text-xs text-text-secondary transition-opacity duration-300 sm:pl-13 sm:text-sm"
+          className="line-clamp-2 pr-7 pl-11 text-[0.6875rem] text-text-secondary transition-opacity duration-300 sm:line-clamp-none sm:pl-13 sm:text-sm"
           style={{ opacity: revealed ? 1 : 0 }}
         >
           {sentence}

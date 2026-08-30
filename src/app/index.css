@@ -338,11 +338,17 @@ body {
 }
 
 .insight-orb__label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   line-height: 1.2;
   color: var(--color-text-secondary);
   white-space: nowrap;
   transition: opacity 300ms ease-out;
+}
+
+@media (min-width: 640px) {
+  .insight-orb__label {
+    font-size: 0.75rem;
+  }
 }
 
 .insight-body[data-revealed='true'] .insight-orb__label {
