@@ -1,5 +1,8 @@
 {
   "app": {
+    "dialog": {
+      "close": "Close"
+    },
     "menu": {
       "close": "Close menu",
       "profile": "Profile",
@@ -29,5 +32,80 @@
       "topCategory": "Your biggest spending category this month was {{category}}, at <amount>{{amount}}</amount> ({{percentage}} of your spending).",
       "dominantFixedCost": "{{fixedCategory}} makes up {{fixedPercentage}} of your month. Excluding it, your biggest expense was {{category}}, at <amount>{{amount}}</amount>."
     }
+  },
+  "transactionList": {
+    "title": "Transactions",
+    "status": {
+      "confirmada": "Confirmed",
+      "pendiente": "Pending",
+      "programada": "Scheduled",
+      "en_disputa": "Disputed"
+    },
+    "row": {
+      "edit": "Edit category for {{description}}",
+      "noAccount": "No account"
+    },
+    "flags": {
+      "duplicate": "Possible duplicate",
+      "refund": "Refund",
+      "foreignCurrency": "Foreign currency",
+      "correctedAmount": "Corrected amount",
+      "zeroAmount": "Zero amount"
+    },
+    "details": {
+      "title": "Technical detail",
+      "warningCount_one": "{{count}} note",
+      "warningCount_other": "{{count}} notes",
+      "statusLabel": "Status",
+      "referenceLabel": "Reference",
+      "accountLabel": "Account",
+      "uncategorized": "The aggregator sent no category for this transaction — that's what this modal is for.",
+      "duplicate": "There's an identical record (same description, amount and time). Only one of the two counts toward the total.",
+      "pending": "Pending confirmation, but already included in this month's total.",
+      "disputed": "Disputed — excluded from the total while it's resolved.",
+      "foreignCurrency": "Original charge of {{native}}, converted to {{converted}} at a fixed exchange rate for the total.",
+      "refund": "Refund — it subtracts from its category instead of adding as income.",
+      "correctedSign": "The amount arrived as unsigned text and was interpreted as an expense.",
+      "zeroAmount": "Zero amount — it affects neither this month's income nor its expenses."
+    },
+    "filters": {
+      "all": "All",
+      "toggle": "Show filters",
+      "clear": "Clear",
+      "activeNotice": "Filters search the whole month, not just the visible week.",
+      "kind": {
+        "label": "Type",
+        "gasto": "Expenses",
+        "ingreso": "Income",
+        "traspaso": "Internal"
+      },
+      "category": {
+        "label": "Category"
+      },
+      "account": {
+        "label": "Account"
+      }
+    },
+    "search": {
+      "placeholder": "Search transactions",
+      "ariaLabel": "Search transactions"
+    },
+    "week": {
+      "previous": "Previous week",
+      "next": "Next week",
+      "rowCount_one": "{{count}} transaction",
+      "rowCount_other": "{{count}} transactions"
+    },
+    "empty": {
+      "noRows": "There are no transactions in this period.",
+      "filtered": "Nothing matches your search.",
+      "week": "No transactions this week."
+    }
+  },
+  "editCategory": {
+    "title": "Fix category",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Choose a category",
+    "save": "Save changes"
   }
 }

@@ -20,4 +20,5 @@ export { getTransactionKind, isSpendEligible, type TransactionKind } from './lib
 export { applyPeriod, listPeriods, scopeToPeriod } from './lib/periods';
 export { Amount } from './ui/Amount';
 export { CategoryIcon } from './ui/CategoryIcon';
+export { FlagBadges } from './ui/FlagBadges';
 export { CATEGORY_COLORS, OTHERS_COLOR } from './ui/categoryTheme';

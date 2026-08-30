@@ -1,5 +1,8 @@
 {
   "app": {
+    "dialog": {
+      "close": "Cerrar"
+    },
     "menu": {
       "close": "Cerrar menú",
       "profile": "Perfil",
@@ -29,5 +32,80 @@
       "topCategory": "Tu categoría con más gasto este mes fue {{category}}, con <amount>{{amount}}</amount> ({{percentage}} de tu gasto).",
       "dominantFixedCost": "{{fixedCategory}} concentra el {{fixedPercentage}} de tu mes. Sin contarla, tu gasto más alto fue en {{category}}, con <amount>{{amount}}</amount>."
     }
+  },
+  "transactionList": {
+    "title": "Movimientos",
+    "status": {
+      "confirmada": "Confirmada",
+      "pendiente": "Pendiente",
+      "programada": "Programada",
+      "en_disputa": "En disputa"
+    },
+    "row": {
+      "edit": "Editar categoría de {{description}}",
+      "noAccount": "Sin cuenta"
+    },
+    "flags": {
+      "duplicate": "Posible duplicado",
+      "refund": "Reembolso",
+      "foreignCurrency": "Moneda extranjera",
+      "correctedAmount": "Monto corregido",
+      "zeroAmount": "Monto en cero"
+    },
+    "details": {
+      "title": "Detalle técnico",
+      "warningCount_one": "{{count}} aviso",
+      "warningCount_other": "{{count}} avisos",
+      "statusLabel": "Estado",
+      "referenceLabel": "Referencia",
+      "accountLabel": "Cuenta",
+      "uncategorized": "El agregador no envió categoría para este movimiento — es a lo que invita a corregir este modal.",
+      "duplicate": "Hay otro registro idéntico (misma descripción, monto y hora). Solo uno de los dos se cuenta en el total.",
+      "pending": "Pendiente de confirmación, pero ya se incluye en el total del mes.",
+      "disputed": "En disputa — excluido del total mientras se resuelve.",
+      "foreignCurrency": "Cargo original de {{native}}, convertido a {{converted}} a un tipo de cambio fijo para el total.",
+      "refund": "Reembolso — resta de su categoría en vez de sumarse como ingreso.",
+      "correctedSign": "El monto llegó como texto y sin signo; se interpretó como gasto.",
+      "zeroAmount": "Monto en cero — no afecta ni el ingreso ni el gasto del mes."
+    },
+    "filters": {
+      "all": "Todos",
+      "toggle": "Mostrar filtros",
+      "clear": "Limpiar",
+      "activeNotice": "Los filtros buscan en todo el mes, no solo en la semana visible.",
+      "kind": {
+        "label": "Tipo",
+        "gasto": "Gastos",
+        "ingreso": "Ingresos",
+        "traspaso": "Internos"
+      },
+      "category": {
+        "label": "Categoría"
+      },
+      "account": {
+        "label": "Cuenta"
+      }
+    },
+    "search": {
+      "placeholder": "Buscar movimientos",
+      "ariaLabel": "Buscar movimientos"
+    },
+    "week": {
+      "previous": "Semana anterior",
+      "next": "Semana siguiente",
+      "rowCount_one": "{{count}} movimiento",
+      "rowCount_other": "{{count}} movimientos"
+    },
+    "empty": {
+      "noRows": "No hay movimientos en este periodo.",
+      "filtered": "Nada coincide con tu búsqueda.",
+      "week": "Sin movimientos esta semana."
+    }
+  },
+  "editCategory": {
+    "title": "Corregir categoría",
+    "categoryLabel": "Categoría",
+    "categoryPlaceholder": "Elegir categoría",
+    "save": "Guardar cambios"
   }
 }
