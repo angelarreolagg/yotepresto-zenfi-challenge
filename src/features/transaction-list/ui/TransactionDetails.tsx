@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react';
+import { ChevronDown, TriangleAlert } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import type { Transaction } from '@/entities/transaction';
 import { useLocale } from '@/shared/i18n/useLocale';
+import { cn } from '@/shared/lib/cn';
 import { formatCurrency, formatForeignAmount } from '@/shared/lib/format';
 
 import { computeTransactionNotes } from '../lib/transactionNotes';
@@ -31,12 +33,21 @@ export function TransactionDetails({ transaction }: TransactionDetailsProps) {
         aria-expanded={expanded}
         className="flex w-full items-center justify-between gap-2 text-left text-sm font-medium transition-transform active:scale-[0.97]"
       >
-        {t('transactionList.details.title')}
+        <span className="flex-1">{t('transactionList.details.title')}</span>
         {notes.length > 0 && (
-          <span className="rounded-full bg-warning/15 px-2 py-0.5 text-xs font-semibold text-warning">
+          <span className="flex items-center gap-1 rounded-full bg-warning/15 px-2 py-0.5 text-xs font-semibold text-warning">
+            <TriangleAlert size={12} aria-hidden />
             {t('transactionList.details.warningCount', { count: notes.length })}
           </span>
         )}
+        <ChevronDown
+          size={16}
+          aria-hidden
+          className={cn(
+            'shrink-0 text-text-secondary transition-transform duration-250',
+            expanded && 'rotate-180',
+          )}
+        />
       </button>
 
       <div

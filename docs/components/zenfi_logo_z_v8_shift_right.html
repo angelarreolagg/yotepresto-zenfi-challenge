@@ -1,0 +1,47 @@
+<div style="display:flex;align-items:center;justify-content:center;padding:3rem 0;background:#ffffff;border-radius:12px;">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div style="width:110px;height:94px;position:relative;">
+      <svg viewBox="0 0 400 340" width="110" height="94" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="170,200 370,200 260,310 60,310" fill="#5B21D6" style="opacity:0;animation:zv8-purple 0.55s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;"/>
+        <polygon points="170,200 300,200 177,235" fill="#241259" style="opacity:0;animation:zv8-shadow 0.45s cubic-bezier(0.16,1,0.3,1) 0.45s forwards;"/>
+        <polygon points="150,90 350,90 240,200 40,200" fill="#0B93F6" style="opacity:0;animation:zv8-blue 0.55s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;"/>
+      </svg>
+    </div>
+    <div style="display:flex;overflow:hidden;">
+      <span class="zf-letter-v8" style="animation-delay:0.85s;color:#0f172a;">z</span>
+      <span class="zf-letter-v8" style="animation-delay:0.95s;color:#0f172a;">e</span>
+      <span class="zf-letter-v8" style="animation-delay:1.05s;color:#0f172a;">n</span>
+      <span class="zf-letter-v8" style="animation-delay:1.15s;color:#0f172a;">f</span>
+      <span class="zf-letter-v8" style="animation-delay:1.25s;color:#0f172a;">i</span>
+    </div>
+  </div>
+</div>
+<style>
+.zf-letter-v8{
+  font-family:'Poppins','Inter',system-ui,-apple-system,sans-serif;
+  font-weight:200;
+  letter-spacing:0.16em;
+  font-size:40px;
+  line-height:1;
+  display:inline-block;
+  opacity:0;
+  transform:translateY(14px);
+  animation:zv8-letter 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes zv8-purple{
+  from{opacity:0;transform:translate(14px,10px) scale(0.94);}
+  to{opacity:1;transform:translate(0,0) scale(1);}
+}
+@keyframes zv8-shadow{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+@keyframes zv8-blue{
+  from{opacity:0;transform:translate(-14px,-8px) scale(0.94);}
+  to{opacity:1;transform:translate(0,0) scale(1);}
+}
+@keyframes zv8-letter{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>

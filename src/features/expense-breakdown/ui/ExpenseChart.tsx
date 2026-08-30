@@ -4,7 +4,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
 import { CATEGORY_COLORS, OTHERS_COLOR } from '@/entities/transaction';
 import { useLocale } from '@/shared/i18n/useLocale';
-import { formatCompactCurrency, formatPercent } from '@/shared/lib/format';
+import { formatCompactCurrency, formatCurrency, formatPercent } from '@/shared/lib/format';
 
 import type { ChartSlice } from '../lib/categoryBreakdown';
 
@@ -34,6 +34,7 @@ function ChartTooltip({ datum, locale }: { datum: SliceDatum; locale: string }) 
   return (
     <div className="rounded-lg bg-surface-raised px-3 py-2 text-xs shadow-2xl">
       <p className="font-semibold text-text-primary">{datum.name}</p>
+      <p className="tabular-nums text-text-primary">{formatCurrency(datum.totalMXN, locale)}</p>
       <p className="text-text-secondary">{formatPercent(datum.percentage / 100, locale)}</p>
     </div>
   );

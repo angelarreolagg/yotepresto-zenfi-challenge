@@ -2,7 +2,12 @@ import { useMemo, useState } from 'react';
 import { Search, SlidersHorizontal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-import type { Category, Transaction, TransactionKind } from '@/entities/transaction';
+import {
+  CategoryIcon,
+  type Category,
+  type Transaction,
+  type TransactionKind,
+} from '@/entities/transaction';
 import { cn } from '@/shared/lib/cn';
 import { Dropdown, type DropdownOption } from '@/shared/ui/Dropdown';
 
@@ -58,6 +63,7 @@ export function TransactionFilters({ transactions, filters, onChange }: Transact
       ...values.map((category) => ({
         value: category,
         label: category,
+        icon: <CategoryIcon category={category} size="sm" />,
         meta: String(applyFilters(transactions, { ...filters, category }).length),
       })),
     ];

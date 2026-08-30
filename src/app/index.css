@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@200&display=swap');
 @import 'tailwindcss';
 
 /*
@@ -8,6 +8,8 @@
  */
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* The logo wordmark only — a deliberate brand exception to --font-sans, per the provided mark. */
+  --font-logo: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
 
   --color-background: #000000;
   --color-surface: #1c1c1e;
@@ -38,6 +40,15 @@
   --animate-fade-in: fade-in 180ms ease-out;
   --animate-reveal-inline: reveal-inline 160ms ease-out;
   --animate-chart-in: chart-in 700ms ease-out;
+
+  /* The logo mark's entrance. The source (docs/components/zenfi_logo_z_v8_shift_right.html)
+     staggers these with animation-delay; adapted here to stagger by duration only, per §5.3 —
+     a delayed, opacity:0 keyframe is exactly the shape that strands content invisible in a
+     backgrounded tab. All four start together and settle in sequence instead. */
+  --animate-logo-purple: logo-purple 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-logo-shadow: logo-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-logo-blue: logo-blue 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-logo-letter: logo-letter 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes rise-in {
@@ -130,6 +141,48 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes logo-purple {
+  from {
+    opacity: 0;
+    transform: translate(14px, 10px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes logo-shadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo-blue {
+  from {
+    opacity: 0;
+    transform: translate(-14px, -8px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes logo-letter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
