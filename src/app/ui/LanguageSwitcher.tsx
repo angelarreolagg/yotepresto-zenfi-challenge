@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
     <div
       role="group"
       aria-label={t('app.languageSwitcher.label')}
-      className="flex items-center gap-0.5 rounded-full bg-surface-sunken p-0.5"
+      className="flex items-center gap-0.5 rounded-full bg-surface-sunken/85 p-0.5"
     >
       {SUPPORTED_LANGUAGES.map((option) => (
         <button
@@ -31,7 +31,7 @@ export function LanguageSwitcher() {
           onClick={() => pick(option)}
           className={cn(
             'flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium transition-[color,background-color,transform] active:scale-[0.97]',
-            option === language ? 'bg-surface-raised text-text-primary' : 'text-text-secondary',
+            option === language ? 'bg-surface-raised/85 text-text-primary' : 'text-text-secondary',
           )}
         >
           <LanguageFlag language={option} />

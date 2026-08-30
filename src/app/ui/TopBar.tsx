@@ -50,10 +50,8 @@ export function TopBar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-30 border-b transition-colors duration-200',
-        scrolled
-          ? 'border-border/70 bg-surface/75 backdrop-blur-xl'
-          : 'border-transparent bg-surface',
+        'sticky top-0 z-30 border-b bg-surface/85 backdrop-blur-md transition-colors duration-200',
+        scrolled ? 'border-border/70' : 'border-transparent',
       )}
     >
       <div className={cn(PAGE_CONTAINER, 'flex h-11 items-center justify-between sm:h-14')}>

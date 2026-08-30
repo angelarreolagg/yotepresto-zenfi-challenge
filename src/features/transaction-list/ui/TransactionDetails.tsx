@@ -26,7 +26,7 @@ export function TransactionDetails({ transaction }: TransactionDetailsProps) {
   const notes = useMemo(() => computeTransactionNotes(transaction), [transaction]);
 
   return (
-    <div className="rounded-xl bg-surface-sunken p-3">
+    <div className="rounded-xl bg-surface-sunken/85 p-3 backdrop-blur-md">
       <button
         type="button"
         onClick={() => setExpanded((value) => !value)}

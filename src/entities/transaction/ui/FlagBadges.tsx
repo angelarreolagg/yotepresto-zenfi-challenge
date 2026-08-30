@@ -50,7 +50,7 @@ export function FlagBadges({ metadata, className }: FlagBadgesProps) {
       {badges.map((badge) => (
         <span
           key={badge.label}
-          className="flex items-center gap-1 rounded-full bg-surface-raised px-2 py-0.5 text-[0.625rem] text-text-secondary"
+          className="flex items-center gap-1 rounded-full bg-surface-raised/85 px-2 py-0.5 text-[0.625rem] text-text-secondary backdrop-blur-md"
         >
           {badge.icon}
           {badge.label}

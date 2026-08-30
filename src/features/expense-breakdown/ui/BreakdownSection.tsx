@@ -32,7 +32,7 @@ export function BreakdownSection() {
   return (
     <section
       data-onboarding="breakdown"
-      className="flex flex-col gap-2.5 rounded-2xl bg-surface p-3 sm:gap-3 sm:p-4 lg:h-full"
+      className="flex flex-col gap-2.5 rounded-2xl bg-surface/85 p-3 backdrop-blur-md sm:gap-3 sm:p-4 lg:h-full"
     >
       {breakdown.length === 0 ? (
         <p className="text-sm text-text-secondary">{t('expenseBreakdown.empty')}</p>
