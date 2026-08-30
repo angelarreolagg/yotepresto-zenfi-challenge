@@ -1,13 +1,26 @@
 import { BreakdownSection } from '@/features/expense-breakdown';
 import { TransactionList } from '@/features/transaction-list';
+import { cn } from '@/shared/lib/cn';
+
+import { AppProviders } from './providers/AppProviders';
+import { TopBar } from './ui/TopBar';
+import { PAGE_CONTAINER } from './ui/pageContainer';
 
 const App = () => (
-  <main className="min-h-dvh bg-background pb-8 text-text-primary">
-    <div className="mx-auto grid w-full max-w-md grid-cols-1 gap-3 px-4 py-4 sm:max-w-2xl sm:gap-6 sm:px-6 md:max-w-3xl lg:max-w-6xl lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-8 lg:px-8 xl:max-w-7xl">
-      <BreakdownSection />
-      <TransactionList />
+  <AppProviders>
+    <div className="min-h-dvh bg-background text-text-primary">
+      <TopBar />
+      <main
+        className={cn(
+          PAGE_CONTAINER,
+          'grid grid-cols-1 gap-3 py-4 sm:gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-8',
+        )}
+      >
+        <BreakdownSection />
+        <TransactionList />
+      </main>
     </div>
-  </main>
+  </AppProviders>
 );
 
 export default App;

@@ -4,6 +4,7 @@
       "close": "Cerrar"
     },
     "menu": {
+      "open": "Abrir menú de perfil",
       "close": "Cerrar menú",
       "profile": "Perfil",
       "language": "Idioma"
@@ -11,6 +12,31 @@
     "language": {
       "es": "Español",
       "en": "Inglés"
+    },
+    "greeting": {
+      "prefix": "Hola,",
+      "full": "Hola, {{name}}"
+    },
+    "periodPicker": {
+      "label": "Periodo"
+    },
+    "userSwitcher": {
+      "label": "Perfil"
+    },
+    "languageSwitcher": {
+      "label": "Idioma"
+    },
+    "reset": {
+      "button": "Restablecer cambios"
+    },
+    "help": {
+      "button": "Ver el recorrido de ayuda"
+    },
+    "resetDialog": {
+      "title": "¿Restablecer cambios?",
+      "body": "Se perderán todas las correcciones de categoría que hayas hecho. El idioma no cambia.",
+      "cancel": "Cancelar",
+      "confirm": "Restablecer"
     }
   },
   "expenseBreakdown": {

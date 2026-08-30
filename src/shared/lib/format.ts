@@ -91,3 +91,14 @@ export function formatDateFromKey(
   const date = new Date(Date.UTC(Number(year ?? 0), Number(month ?? 1) - 1, Number(day ?? 1)));
   return new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(date);
 }
+
+/** 'YYYY-MM' → a locale month name + year, e.g. "agosto de 2026" / "August 2026". */
+export function formatPeriodLabel(periodKey: string, locale: string): string {
+  const [year, month] = periodKey.split('-');
+  const date = new Date(Date.UTC(Number(year ?? 0), Number(month ?? 1) - 1, 1));
+  return new Intl.DateTimeFormat(locale, {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}

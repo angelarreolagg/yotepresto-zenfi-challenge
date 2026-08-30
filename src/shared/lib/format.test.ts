@@ -7,6 +7,7 @@ import {
   formatDateFromKey,
   formatForeignAmount,
   formatPercent,
+  formatPeriodLabel,
 } from './format';
 
 describe('formatCurrency — narrowSymbol trap', () => {
@@ -57,6 +58,12 @@ describe('formatDateFromKey — the UTC trap', () => {
     expect(formatDateFromKey('2026-08-01', 'es-MX', { day: 'numeric', month: 'short' })).toContain(
       '1',
     );
+  });
+});
+
+describe('formatPeriodLabel', () => {
+  it('renders a month name and year, not shifted by timezone', () => {
+    expect(formatPeriodLabel('2026-08', 'en-US')).toBe('August 2026');
   });
 });
 

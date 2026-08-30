@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 import en from './locales/en.json';
 import es from './locales/es.json';
-import { DEFAULT_LANGUAGE, type Language } from './languages';
+import { DEFAULT_LANGUAGE, resolveLanguage, type Language } from './languages';
 
 /**
  * Must run before `createRoot` (see app/main.tsx): resources are passed in directly rather than
@@ -17,6 +17,12 @@ import { DEFAULT_LANGUAGE, type Language } from './languages';
  * default from the browser on a first-ever visit, when nothing has been persisted yet.
  */
 export function initI18n(persistedLanguage: Language | null): typeof i18n {
+  // Kept in sync with the active language for screen readers, spell-check and browser features
+  // that read it — i18next fires this once during init too, so it covers the first paint.
+  i18n.on('languageChanged', (lng: string) => {
+    document.documentElement.lang = resolveLanguage(lng);
+  });
+
   void i18n
     .use(LanguageDetector)
     .use(initReactI18next)
