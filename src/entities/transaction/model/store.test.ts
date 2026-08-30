@@ -82,8 +82,8 @@ describe('setUser / setLanguage', () => {
   });
 
   it('accepts a known user id', () => {
-    useTransactionStore.getState().setUser('sofia');
-    expect(useTransactionStore.getState().currentUser).toBe('sofia');
+    useTransactionStore.getState().setUser('angel');
+    expect(useTransactionStore.getState().currentUser).toBe('angel');
   });
 
   it('accepts a supported language', () => {

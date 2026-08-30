@@ -78,6 +78,20 @@ export function formatPercent(fraction: number, locale: string): string {
 }
 
 /**
+ * Spanish lowercases month names in running text ("19 de agosto"), which is grammatically
+ * correct but reads oddly as a UI label ("agosto de 2026" as a picker's own value, "19 ago" in a
+ * list). Capitalizing only the 'month' part — never the whole string — keeps that fix correct
+ * regardless of whether the month comes first (en-US) or not (es-MX "19 ago").
+ */
+function capitalizeMonthPart(parts: Intl.DateTimeFormatPart[]): string {
+  return parts
+    .map((part) =>
+      part.type === 'month' ? part.value.charAt(0).toUpperCase() + part.value.slice(1) : part.value,
+    )
+    .join('');
+}
+
+/**
  * Builds the date at UTC midnight from the calendar key and formats in UTC, so the rendered day
  * is the one in the data regardless of the viewer's timezone — never `new Date(dateKey)` parsed
  * and shown in local time.
@@ -86,19 +100,24 @@ export function formatDateFromKey(
   dateKey: string,
   locale: string,
   options: Intl.DateTimeFormatOptions,
+  capitalizeMonth = false,
 ): string {
   const [year, month, day] = dateKey.split('-');
   const date = new Date(Date.UTC(Number(year ?? 0), Number(month ?? 1) - 1, Number(day ?? 1)));
-  return new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(date);
+  const formatter = new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' });
+  return capitalizeMonth
+    ? capitalizeMonthPart(formatter.formatToParts(date))
+    : formatter.format(date);
 }
 
-/** 'YYYY-MM' → a locale month name + year, e.g. "agosto de 2026" / "August 2026". */
+/** 'YYYY-MM' → a locale month name + year, e.g. "Agosto de 2026" / "August 2026". */
 export function formatPeriodLabel(periodKey: string, locale: string): string {
   const [year, month] = periodKey.split('-');
   const date = new Date(Date.UTC(Number(year ?? 0), Number(month ?? 1) - 1, 1));
-  return new Intl.DateTimeFormat(locale, {
+  const formatter = new Intl.DateTimeFormat(locale, {
     month: 'long',
     year: 'numeric',
     timeZone: 'UTC',
-  }).format(date);
+  });
+  return capitalizeMonthPart(formatter.formatToParts(date));
 }

@@ -59,11 +59,28 @@ describe('formatDateFromKey — the UTC trap', () => {
       '1',
     );
   });
+
+  it('capitalizes only the month part when asked, wherever it falls in the string', () => {
+    // es-MX puts the day first ("1 ago"), so capitalizing the whole string wouldn't touch it.
+    expect(formatDateFromKey('2026-08-01', 'es-MX', { day: 'numeric', month: 'short' }, true)).toBe(
+      '1 Ago',
+    );
+  });
+
+  it('leaves the month lowercase by default', () => {
+    expect(formatDateFromKey('2026-08-01', 'es-MX', { day: 'numeric', month: 'short' })).toBe(
+      '1 ago',
+    );
+  });
 });
 
 describe('formatPeriodLabel', () => {
   it('renders a month name and year, not shifted by timezone', () => {
     expect(formatPeriodLabel('2026-08', 'en-US')).toBe('August 2026');
+  });
+
+  it('capitalizes the month in es-MX, where Intl lowercases it by default', () => {
+    expect(formatPeriodLabel('2026-08', 'es-MX')).toBe('Agosto de 2026');
   });
 });
 

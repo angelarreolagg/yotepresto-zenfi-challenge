@@ -36,7 +36,7 @@ export function WeekNavigator({
   const { intlLocale } = useLocale();
 
   const dateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short' };
-  const rangeLabel = `${formatDateFromKey(week.startDateKey, intlLocale, dateOptions)}–${formatDateFromKey(week.endDateKey, intlLocale, dateOptions)}`;
+  const rangeLabel = `${formatDateFromKey(week.startDateKey, intlLocale, dateOptions, true)}–${formatDateFromKey(week.endDateKey, intlLocale, dateOptions, true)}`;
 
   return (
     <div

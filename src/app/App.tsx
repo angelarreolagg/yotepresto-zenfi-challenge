@@ -13,7 +13,7 @@ const App = () => (
       <main
         className={cn(
           PAGE_CONTAINER,
-          'grid grid-cols-1 gap-3 py-4 sm:gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-8',
+          'grid grid-cols-1 gap-3 py-4 sm:gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-stretch lg:gap-8',
         )}
       >
         <BreakdownSection />

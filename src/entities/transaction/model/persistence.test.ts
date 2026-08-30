@@ -75,10 +75,10 @@ describe('parsePersistedState — untrusted input (CODESTYLE.md §8)', () => {
 
   it('accepts a well-typed selectedPeriod / currentUser as-is', () => {
     const state = parsePersistedState(
-      JSON.stringify({ selectedPeriod: '2026-08', currentUser: 'ana' }),
+      JSON.stringify({ selectedPeriod: '2026-08', currentUser: 'saul' }),
     );
     expect(state.selectedPeriod).toBe('2026-08');
-    expect(state.currentUser).toBe('ana');
+    expect(state.currentUser).toBe('saul');
   });
 
   it('falls back to null for a language that no longer exists', () => {

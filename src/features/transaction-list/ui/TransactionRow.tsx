@@ -47,10 +47,12 @@ export function TransactionRow({ transaction, isOnboardingAnchor = false }: Tran
     return () => window.clearTimeout(timeout);
   }, [overlayOpen, overlayPayload, transaction.id]);
 
-  const dateLabel = formatDateFromKey(transaction.dateKey, intlLocale, {
-    day: 'numeric',
-    month: 'short',
-  });
+  const dateLabel = formatDateFromKey(
+    transaction.dateKey,
+    intlLocale,
+    { day: 'numeric', month: 'short' },
+    true,
+  );
   const statusLabel = t(`transactionList.status.${transaction.status}`);
 
   return (
