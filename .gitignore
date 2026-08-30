@@ -15,3 +15,6 @@ pnpm-debug.log*
 
 # Machine-local pnpm store override, not project config.
 .npmrc
+
+# Claude Code's own local dev-server launch config, not part of the deliverable.
+.claude/

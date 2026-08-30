@@ -9,5 +9,25 @@
       "es": "Spanish",
       "en": "English"
     }
+  },
+  "expenseBreakdown": {
+    "empty": "There's nothing to analyze in this period yet.",
+    "chart": {
+      "totalLabel": "Total spent",
+      "others": "Other"
+    },
+    "list": {
+      "showMore": "Show all categories",
+      "showLess": "Show less"
+    },
+    "summary": {
+      "income": "Income",
+      "net": "Net"
+    },
+    "insight": {
+      "empty": "There's nothing to analyze in this period yet.",
+      "topCategory": "Your biggest spending category this month was {{category}}, at <amount>{{amount}}</amount> ({{percentage}} of your spending).",
+      "dominantFixedCost": "{{fixedCategory}} makes up {{fixedPercentage}} of your month. Excluding it, your biggest expense was {{category}}, at <amount>{{amount}}</amount>."
+    }
   }
 }

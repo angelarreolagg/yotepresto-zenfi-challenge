@@ -18,3 +18,6 @@ export {
 export { computeSummary, type Summary } from './lib/summary';
 export { getTransactionKind, isSpendEligible, type TransactionKind } from './lib/eligibility';
 export { applyPeriod, listPeriods, scopeToPeriod } from './lib/periods';
+export { Amount } from './ui/Amount';
+export { CategoryIcon } from './ui/CategoryIcon';
+export { CATEGORY_COLORS, OTHERS_COLOR } from './ui/categoryTheme';
