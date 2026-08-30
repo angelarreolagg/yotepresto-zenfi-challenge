@@ -7,7 +7,6 @@
 - **Corrección de categoría en modal, no inline.** Un `<select>` en la fila es menos clics, pero no deja dónde explicar _por qué_ una fila está marcada (duplicado, reembolso, monto corregido) — esas marcas son la mitad de lo interesante del dataset.
 - **Sí construí un recorrido de bienvenida.** El resumen del mes (la dona y el desglose por categoría) se explica solo con mirarlo; en cambio, nada en una fila de movimiento avisa por sí sola que su categoría se puede corregir. Por eso agregué un recorrido guiado que la primera vez señala ambas cosas — no bloquea la pantalla mientras corre y se puede volver a lanzar desde el botón de ayuda.
 - **Dejé fuera:** tendencias (19 días de un mes no dan serie), presupuestos, exportar, y analítica de uso — eso lo agrega después el wizard de PostHog.
-- **Me faltó pulir la UX de la corrección de categoría.** Sé que hay un bug ahí que no alcancé a arreglar a tiempo; prioricé que la primera impresión de los primeros 10 segundos funcionara bien y que la tarjeta de insight se viera pulida antes que perseguir ese bug con el tiempo que me quedaba.
 
 ## Supuestos que tuve que inventar
 
