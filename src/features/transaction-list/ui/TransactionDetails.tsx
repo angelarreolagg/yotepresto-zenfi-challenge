@@ -29,7 +29,7 @@ export function TransactionDetails({ transaction }: TransactionDetailsProps) {
         type="button"
         onClick={() => setExpanded((value) => !value)}
         aria-expanded={expanded}
-        className="flex w-full items-center justify-between gap-2 text-left text-sm font-medium"
+        className="flex w-full items-center justify-between gap-2 text-left text-sm font-medium transition-transform active:scale-[0.97]"
       >
         {t('transactionList.details.title')}
         {notes.length > 0 && (

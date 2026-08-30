@@ -102,7 +102,7 @@ export function TransactionFilters({ transactions, filters, onChange }: Transact
           onClick={() => setMobileFiltersOpen((value) => !value)}
           aria-expanded={mobileFiltersOpen}
           aria-label={t('transactionList.filters.toggle')}
-          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-raised text-text-secondary sm:hidden"
+          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-raised text-text-secondary transition-transform active:scale-90 sm:hidden"
         >
           <SlidersHorizontal size={16} />
           {activeDimensionCount > 0 && (
@@ -116,7 +116,7 @@ export function TransactionFilters({ transactions, filters, onChange }: Transact
           <button
             type="button"
             onClick={() => onChange(EMPTY_FILTERS)}
-            className="shrink-0 animate-reveal-inline overflow-hidden text-xs font-semibold whitespace-nowrap text-accent"
+            className="shrink-0 animate-reveal-inline overflow-hidden text-xs font-semibold whitespace-nowrap text-accent transition-transform active:scale-[0.97]"
           >
             {t('transactionList.filters.clear')}
           </button>

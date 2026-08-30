@@ -71,7 +71,7 @@ export function Modal({
             type="button"
             aria-label={t('app.dialog.close')}
             onClick={onClose}
-            className="-mr-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary"
+            className="-mr-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90"
           >
             <X size={16} />
           </button>

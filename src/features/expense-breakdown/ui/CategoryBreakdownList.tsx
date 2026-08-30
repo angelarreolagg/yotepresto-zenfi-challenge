@@ -92,7 +92,7 @@ export function CategoryBreakdownList({ breakdown }: CategoryBreakdownListProps)
             type="button"
             aria-expanded={expanded}
             onClick={() => setExpanded((value) => !value)}
-            className="self-start text-xs font-semibold text-accent"
+            className="self-start text-xs font-semibold text-accent transition-transform active:scale-[0.97]"
           >
             {expanded ? t('expenseBreakdown.list.showLess') : t('expenseBreakdown.list.showMore')}
           </button>

@@ -30,7 +30,7 @@ export function LanguageSwitcher() {
           aria-pressed={option === language}
           onClick={() => pick(option)}
           className={cn(
-            'flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium transition-colors',
+            'flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium transition-[color,background-color,transform] active:scale-[0.97]',
             option === language ? 'bg-surface-raised text-text-primary' : 'text-text-secondary',
           )}
         >

@@ -151,7 +151,7 @@ export function OnboardingOverlay() {
             type="button"
             aria-label={t('onboarding.skip')}
             onClick={skip}
-            className="-mt-1 -mr-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-text-secondary"
+            className="-mt-1 -mr-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90"
           >
             <X size={14} />
           </button>

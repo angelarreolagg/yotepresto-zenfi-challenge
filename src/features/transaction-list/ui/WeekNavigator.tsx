@@ -48,7 +48,7 @@ export function WeekNavigator({
         aria-label={t('transactionList.week.previous')}
         disabled={!canGoPrevious}
         onClick={onPrevious}
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary disabled:opacity-30"
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90 disabled:opacity-30 disabled:active:scale-100"
       >
         <ChevronLeft size={16} />
       </button>
@@ -72,7 +72,7 @@ export function WeekNavigator({
         aria-label={t('transactionList.week.next')}
         disabled={!canGoNext}
         onClick={onNext}
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary disabled:opacity-30"
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90 disabled:opacity-30 disabled:active:scale-100"
       >
         <ChevronRight size={16} />
       </button>

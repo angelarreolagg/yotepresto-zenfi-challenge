@@ -58,7 +58,7 @@ export function TopBar() {
             type="button"
             aria-label={t('app.menu.open')}
             onClick={() => setProfileMenuOpen(true)}
-            className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold text-white sm:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold text-white transition-transform active:scale-90 sm:hidden"
             style={{ backgroundColor: user?.color }}
           >
             {user?.initial}

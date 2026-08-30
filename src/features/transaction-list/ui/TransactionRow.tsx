@@ -76,7 +76,7 @@ export function TransactionRow({ transaction, isOnboardingAnchor = false }: Tran
           data-onboarding={isOnboardingAnchor ? 'edit-button' : undefined}
           aria-label={t('transactionList.row.edit', { description: transaction.description })}
           onClick={() => open({ transactionId: transaction.id })}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90"
         >
           <Pencil size={15} />
         </button>
