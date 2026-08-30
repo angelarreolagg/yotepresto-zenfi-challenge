@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/*
+ * Design tokens from STYLEGUIDE.md §2. Tailwind v4 turns every `--color-*` / `--font-*` /
+ * `--animate-*` entry here into a matching utility class (bg-surface, text-text-secondary,
+ * animate-rise-in, ...) — there is no tailwind.config.js to drift from this file.
+ */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --color-background: #000000;
+  --color-surface: #1c1c1e;
+  --color-surface-raised: #2c2c2e;
+  --color-surface-sunken: #141416;
+
+  --color-border: #2c2c2e;
+  --color-border-strong: #3a3a3c;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8e8e93;
+  --color-text-muted: #636366;
+
+  --color-accent: #0a84ff;
+  --color-positive: #30d158;
+  --color-negative: #ff453a;
+  --color-warning: #ffd60a;
+
+  /* Entrances (STYLEGUIDE §9). No fill-mode, no animation-delay: every keyframe below ends at
+     the element's own resting style, so an unplayed animation still renders correctly (§5.3 of
+     ROADMAP.md). Per-instance stagger is applied by overriding animation-duration inline, never
+     animation-delay. */
+  --animate-rise-in: rise-in 350ms ease-out;
+  --animate-sheet-in: sheet-in 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-dialog-in: dialog-in 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-pop-in-down: pop-in-down 160ms ease-out;
+  --animate-pop-in-up: pop-in-up 160ms ease-out;
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-reveal-inline: reveal-inline 160ms ease-out;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-in-down {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pop-in-up {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-inline {
+  from {
+    opacity: 0;
+    max-width: 0;
+  }
+  to {
+    opacity: 1;
+    max-width: 9rem;
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* STYLEGUIDE §6.4 — the platform scrollbar is a light, wide bar that cuts across a dark rounded
+   panel. Every scroll container in this app (week navigator, row list, dropdown panels) takes
+   this class instead. */
+.scroll-slim {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.scroll-slim::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-slim::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-strong);
+  border-radius: 9999px;
+}
+
+/* STYLEGUIDE §7 — chart sectors are focusable SVG elements whose default outline reads as a
+   stray white border around the card. No component-level fix exists for this. */
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none;
+}
+
+/*
+ * Orb (components/Orb.tsx) — the three-blob CSS sphere is the floor, not the decoration: it is
+ * what shows before the WebGL context is live and after a lost context, so it must read as the
+ * same object the canvas draws, not a placeholder. `[data-gl='true']` hides it once the canvas
+ * is actually painting.
+ */
+.orb {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition:
+    width 450ms ease-out,
+    height 450ms ease-out;
+}
+
+.orb[data-thinking='true'] {
+  width: 48px;
+  height: 48px;
+}
+
+.orb__blob {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 32% 28%, #9160dc 0%, #7030cf 55%, #0a1a5e 100%);
+  animation: orb-drift 3.2s ease-in-out infinite;
+  opacity: 0.9;
+  transition: opacity 200ms ease-out;
+}
+
+.orb__blob:nth-child(2) {
+  animation-duration: 4s;
+  animation-direction: reverse;
+  opacity: 0.55;
+}
+
+.orb__blob:nth-child(3) {
+  animation-duration: 2.6s;
+  opacity: 0.4;
+}
+
+.orb[data-gl='true'] .orb__blob {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.orb__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.orb[data-gl='true'] .orb__canvas {
+  opacity: 1;
+}
+
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2px, -2px) scale(1.05);
+  }
+}
+
+/*
+ * Insight card staging (ROADMAP.md §6.4). `.insight-orb` starts centred over the sentence, which
+ * is in the layout from the first frame at opacity 0 and gives the card its height; only `left`
+ * and `transform` interpolate on reveal, so the orb travels without affecting layout and never
+ * moves vertically, which is what lets it settle across both lines of the sentence.
+ */
+.insight-orb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition:
+    left 550ms cubic-bezier(0.65, 0, 0.35, 1),
+    transform 550ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.insight-body[data-revealed='true'] .insight-orb {
+  left: 0.625rem;
+  transform: translate(0, -50%);
+}
+
+@media (min-width: 640px) {
+  .insight-body[data-revealed='true'] .insight-orb {
+    left: 0.75rem;
+  }
+}
+
+.insight-orb__label {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  transition: opacity 300ms ease-out;
+}
+
+.insight-body[data-revealed='true'] .insight-orb__label {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* STYLEGUIDE §9 — one blanket rule collapsing every animation and transition, rather than
+   hunting down each animated component individually. Components consult the media query
+   directly only where the *decision* differs, not merely the duration. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

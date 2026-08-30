@@ -12,3 +12,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Machine-local pnpm store override, not project config.
+.npmrc
