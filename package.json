@@ -1,7 +1,7 @@
 {
   "name": "frontend-challenge",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@10.34.3",
   "engines": {
@@ -15,6 +15,7 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "release": "release-it",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -52,6 +53,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
     "prettier": "^3.9.6",
+    "release-it": "^21.0.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.67.0",

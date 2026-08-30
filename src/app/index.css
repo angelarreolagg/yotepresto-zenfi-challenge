@@ -318,12 +318,27 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
+  /* Row, not column: while thinking the orb is 48px, and stacking the label under it made the pair
+     taller than the card, so the label rendered outside the border. Side by side it is only as tall
+     as the orb itself, so it fits whatever height the sentence gives the card. */
+  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
   transition:
     left 550ms cubic-bezier(0.65, 0, 0.35, 1),
     transform 550ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* The revealed sentence can be shorter than the thinking orb; without a floor the card would
+   visibly shrink between the two states. */
+.insight-body {
+  min-height: 4.25rem;
+}
+
+@media (min-width: 640px) {
+  .insight-body {
+    min-height: 4.5rem;
+  }
 }
 
 .insight-body[data-revealed='true'] .insight-orb {

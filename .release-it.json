@@ -1,0 +1,18 @@
+{
+  "git": {
+    "commitMessage": "🔧 chore: release v${version}",
+    "tagName": "v${version}",
+    "tagAnnotation": "Release v${version}",
+    "requireCleanWorkingDir": true,
+    "requireUpstream": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": false
+  },
+  "hooks": {
+    "before:init": ["pnpm typecheck", "pnpm lint", "pnpm test", "pnpm build"]
+  }
+}
