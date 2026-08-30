@@ -99,7 +99,7 @@ export function TransactionFilters({ transactions, filters, onChange }: Transact
             onChange={(event) => onChange({ ...filters, search: event.target.value })}
             placeholder={t('transactionList.search.placeholder')}
             aria-label={t('transactionList.search.ariaLabel')}
-            className="w-full rounded-full bg-surface-raised/85 py-2 pr-3.5 pl-9 text-sm text-text-primary backdrop-blur-md placeholder:text-text-secondary"
+            className="w-full rounded-full bg-surface-raised/70 py-2 pr-3.5 pl-9 text-sm text-text-primary backdrop-blur-md placeholder:text-text-secondary"
           />
         </div>
 
@@ -108,7 +108,7 @@ export function TransactionFilters({ transactions, filters, onChange }: Transact
           onClick={() => setMobileFiltersOpen((value) => !value)}
           aria-expanded={mobileFiltersOpen}
           aria-label={t('transactionList.filters.toggle')}
-          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-raised/85 text-text-secondary backdrop-blur-md transition-transform active:scale-90 sm:hidden"
+          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-raised/70 text-text-secondary backdrop-blur-md transition-transform active:scale-90 sm:hidden"
         >
           <SlidersHorizontal size={16} />
           {activeDimensionCount > 0 && (

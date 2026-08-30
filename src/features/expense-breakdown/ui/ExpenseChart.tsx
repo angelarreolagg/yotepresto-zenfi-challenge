@@ -32,7 +32,7 @@ function isSliceDatum(value: unknown): value is SliceDatum {
  */
 function ChartTooltip({ datum, locale }: { datum: SliceDatum; locale: string }) {
   return (
-    <div className="rounded-lg bg-surface-raised/85 px-3 py-2 text-xs shadow-2xl backdrop-blur-md">
+    <div className="rounded-lg bg-surface-raised/70 px-3 py-2 text-xs shadow-2xl backdrop-blur-md">
       <p className="font-semibold text-text-primary">{datum.name}</p>
       <p className="tabular-nums text-text-primary">{formatCurrency(datum.totalMXN, locale)}</p>
       <p className="text-text-secondary">{formatPercent(datum.percentage / 100, locale)}</p>

@@ -50,7 +50,7 @@ export function TopBar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-30 border-b bg-surface/85 backdrop-blur-md transition-colors duration-200',
+        'sticky top-0 z-30 border-b bg-surface/70 backdrop-blur-md transition-colors duration-200',
         scrolled ? 'border-border/70' : 'border-transparent',
       )}
     >

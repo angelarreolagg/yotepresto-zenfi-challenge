@@ -41,7 +41,7 @@ export function WeekNavigator({
   return (
     <div
       data-onboarding="week-navigator"
-      className="flex items-center gap-1 rounded-xl bg-surface-sunken/85 p-2 backdrop-blur-md"
+      className="flex items-center gap-1 rounded-xl bg-surface-sunken/70 p-2 backdrop-blur-md"
     >
       <button
         type="button"

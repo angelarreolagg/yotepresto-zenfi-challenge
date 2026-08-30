@@ -82,7 +82,7 @@ export function TransactionList() {
       : 'transactionList.empty.week';
 
   return (
-    <section className="flex flex-col gap-2.5 rounded-2xl bg-surface/85 p-3 backdrop-blur-md sm:gap-4 sm:p-4 lg:h-full">
+    <section className="flex flex-col gap-2.5 rounded-2xl bg-surface/70 p-3 backdrop-blur-md sm:gap-4 sm:p-4 lg:h-full">
       <h2 className="sr-only text-lg font-bold sm:not-sr-only">{t('transactionList.title')}</h2>
 
       <TransactionFilters
