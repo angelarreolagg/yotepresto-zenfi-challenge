@@ -133,5 +133,23 @@
     "categoryLabel": "Categoría",
     "categoryPlaceholder": "Elegir categoría",
     "save": "Guardar cambios"
+  },
+  "onboarding": {
+    "next": "Siguiente",
+    "done": "Entendido",
+    "skip": "Saltar recorrido",
+    "progress": "{{current}} de {{total}}",
+    "breakdown": {
+      "title": "El resumen de tu mes",
+      "body": "Aquí ves en segundos en qué se te fue el dinero: la dona, la categoría que más pesa y tu balance."
+    },
+    "edit-button": {
+      "title": "Corrige una categoría",
+      "body": "¿Un movimiento quedó mal clasificado? Tócalo aquí para cambiarlo — el resumen se actualiza al instante."
+    },
+    "week-navigator": {
+      "title": "Navega semana por semana",
+      "body": "Usa las flechas para moverte entre semanas del mes. Tus correcciones se mantienen aunque cambies de semana."
+    }
   }
 }

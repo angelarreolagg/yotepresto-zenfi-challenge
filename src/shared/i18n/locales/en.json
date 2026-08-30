@@ -133,5 +133,23 @@
     "categoryLabel": "Category",
     "categoryPlaceholder": "Choose a category",
     "save": "Save changes"
+  },
+  "onboarding": {
+    "next": "Next",
+    "done": "Got it",
+    "skip": "Skip tour",
+    "progress": "{{current}} of {{total}}",
+    "breakdown": {
+      "title": "Your month at a glance",
+      "body": "See in seconds where your money went: the donut, your biggest category, and your balance."
+    },
+    "edit-button": {
+      "title": "Fix a category",
+      "body": "Spot a transaction that's miscategorized? Tap here to change it — the summary updates instantly."
+    },
+    "week-navigator": {
+      "title": "Move week by week",
+      "body": "Use the arrows to move between weeks in the month. Your corrections stick around even when you change weeks."
+    }
   }
 }

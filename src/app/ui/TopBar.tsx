@@ -3,6 +3,7 @@ import { HelpCircle, RotateCcw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { useTransactionStore } from '@/entities/transaction';
+import { useOnboardingStore } from '@/features/onboarding';
 import { findUser } from '@/shared/config/users';
 import { cn } from '@/shared/lib/cn';
 import { useScrolled } from '@/shared/ui/useScrolled';
@@ -26,6 +27,7 @@ export function TopBar() {
   const scrolled = useScrolled(8);
   const currentUser = useTransactionStore((state) => state.currentUser);
   const user = findUser(currentUser);
+  const startOnboarding = useOnboardingStore((state) => state.start);
 
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
@@ -81,6 +83,7 @@ export function TopBar() {
             <button
               type="button"
               aria-label={t('app.help.button')}
+              onClick={startOnboarding}
               className="flex h-8 w-8 items-center justify-center rounded-full text-text-secondary transition-transform active:scale-90"
             >
               <HelpCircle size={16} />
