@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { HelpCircle, RotateCcw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -31,6 +31,21 @@ export function TopBar() {
 
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
+  // ProfileMenu and ResetConfirmDialog are local state, not createOverlayStore, so they don't get
+  // its automatic focus capture/restore for free — wired here instead (STYLEGUIDE §10: every
+  // overlay returns focus to its trigger on close).
+  const profileTriggerRef = useRef<HTMLButtonElement>(null);
+  const resetTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeProfileMenu = () => {
+    setProfileMenuOpen(false);
+    profileTriggerRef.current?.focus();
+  };
+
+  const closeResetDialog = () => {
+    setResetDialogOpen(false);
+    resetTriggerRef.current?.focus();
+  };
 
   return (
     <header
@@ -55,6 +70,7 @@ export function TopBar() {
             <LanguageSwitcher />
           </div>
           <button
+            ref={profileTriggerRef}
             type="button"
             aria-label={t('app.menu.open')}
             onClick={() => setProfileMenuOpen(true)}
@@ -73,6 +89,7 @@ export function TopBar() {
           <PeriodPicker />
           <div className="flex items-center gap-1">
             <button
+              ref={resetTriggerRef}
               type="button"
               aria-label={t('app.reset.button')}
               onClick={() => setResetDialogOpen(true)}
@@ -92,8 +109,8 @@ export function TopBar() {
         </div>
       </div>
 
-      <ProfileMenu isOpen={profileMenuOpen} onClose={() => setProfileMenuOpen(false)} />
-      <ResetConfirmDialog isOpen={resetDialogOpen} onClose={() => setResetDialogOpen(false)} />
+      <ProfileMenu isOpen={profileMenuOpen} onClose={closeProfileMenu} />
+      <ResetConfirmDialog isOpen={resetDialogOpen} onClose={closeResetDialog} />
     </header>
   );
 }

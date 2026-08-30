@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
@@ -106,6 +106,16 @@ export function OnboardingOverlay() {
     if (cardRef.current === null) return;
     setCardHeight(cardRef.current.getBoundingClientRect().height);
   }, [stepIndex, rect]);
+
+  useEffect(() => {
+    if (!active) return undefined;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') skip();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [active, skip]);
 
   if (!active || anchor === undefined) return null;
 

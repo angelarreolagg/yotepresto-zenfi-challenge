@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import { getFocusedElement } from '../lib/activeElement';
+
 interface OverlayState<TPayload> {
   isOpen: boolean;
   payload: TPayload | null;
@@ -21,8 +23,7 @@ export function createOverlayStore<TPayload = void>() {
     payload: null,
     triggerElement: null,
     open: (payload) => {
-      const active = document.activeElement;
-      set({ isOpen: true, payload, triggerElement: active instanceof HTMLElement ? active : null });
+      set({ isOpen: true, payload, triggerElement: getFocusedElement() });
     },
     close: () => {
       const { triggerElement } = get();
