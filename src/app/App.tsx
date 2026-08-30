@@ -2,13 +2,15 @@ import { BreakdownSection } from '@/features/expense-breakdown';
 import { TransactionList } from '@/features/transaction-list';
 import { cn } from '@/shared/lib/cn';
 
+import { AppBackground } from './ui/AppBackground';
 import { AppProviders } from './providers/AppProviders';
 import { TopBar } from './ui/TopBar';
 import { PAGE_CONTAINER } from './ui/pageContainer';
 
 const App = () => (
   <AppProviders>
-    <div className="min-h-dvh bg-background text-text-primary">
+    <div className="min-h-dvh text-text-primary">
+      <AppBackground />
       <TopBar />
       <main
         className={cn(
