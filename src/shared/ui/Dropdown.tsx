@@ -36,6 +36,24 @@ interface Placement {
 
 const DEFAULT_PLACEMENT: Placement = { dropUp: false, maxHeight: PANEL_MAX_HEIGHT };
 
+/**
+ * The nearest ancestor that actually clips, as a top/bottom pair — the viewport when nothing does.
+ * An `absolute` panel cannot escape a scroll container, so the room it has is the room inside that
+ * box. Measuring against `window.innerHeight` instead is what let the panel open to its full height
+ * inside the edit sheet and get cut off by the sheet's own `overflow-y: auto`.
+ */
+function clippingBounds(element: HTMLElement): { top: number; bottom: number } {
+  let node = element.parentElement;
+  while (node !== null) {
+    if (getComputedStyle(node).overflowY !== 'visible') {
+      const rect = node.getBoundingClientRect();
+      return { top: rect.top, bottom: rect.bottom };
+    }
+    node = node.parentElement;
+  }
+  return { top: 0, bottom: window.innerHeight };
+}
+
 const TRIGGERS = {
   filter:
     'flex w-full items-center justify-between gap-2 rounded-full bg-surface-raised px-3.5 py-2 text-sm text-text-primary',
@@ -94,9 +112,10 @@ export const Dropdown = <TValue extends string>({
   const selected = options.find((option) => option.value === value) ?? null;
 
   /**
-   * The category field sits near the bottom of the edit sheet, where a downward panel would be
-   * clipped by the sheet's own scroll container. Measured in the click handler rather than an
-   * effect: the trigger is already laid out, so there is nothing to wait for.
+   * The category field sits near the bottom of the edit sheet, where the panel has to fit inside
+   * the sheet rather than the screen — hence `clippingBounds` instead of the viewport. Measured in
+   * the click handler rather than an effect: the trigger is already laid out, so there is nothing
+   * to wait for.
    */
   const toggle = () => {
     if (open) {
@@ -104,10 +123,12 @@ export const Dropdown = <TValue extends string>({
       return;
     }
 
-    const rect = trigger.current?.getBoundingClientRect();
-    if (rect !== undefined) {
-      const below = window.innerHeight - rect.bottom - EDGE_GAP;
-      const above = rect.top - EDGE_GAP;
+    const element = trigger.current;
+    if (element !== null) {
+      const rect = element.getBoundingClientRect();
+      const bounds = clippingBounds(element);
+      const below = bounds.bottom - rect.bottom - EDGE_GAP;
+      const above = rect.top - bounds.top - EDGE_GAP;
       const dropUp = below < Math.min(PANEL_MAX_HEIGHT, above);
       setPlacement({
         dropUp,
