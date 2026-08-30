@@ -56,7 +56,9 @@
     "insight": {
       "empty": "No hay gastos que analizar en este periodo todavía.",
       "topCategory": "Tu categoría con más gasto este mes fue {{category}}, con <amount>{{amount}}</amount> ({{percentage}} de tu gasto).",
-      "dominantFixedCost": "{{fixedCategory}} concentra el {{fixedPercentage}} de tu mes. Sin contarla, tu gasto más alto fue en {{category}}, con <amount>{{amount}}</amount>."
+      "dominantFixedCost": "{{fixedCategory}} concentra el {{fixedPercentage}} de tu mes. Sin contarla, tu gasto más alto fue en {{category}}, con <amount>{{amount}}</amount>.",
+      "analysing": "Analizando tus movimientos...",
+      "rerun": "Analizar de nuevo"
     }
   },
   "transactionList": {

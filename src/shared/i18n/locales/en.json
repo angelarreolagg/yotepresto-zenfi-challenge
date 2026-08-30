@@ -56,7 +56,9 @@
     "insight": {
       "empty": "There's nothing to analyze in this period yet.",
       "topCategory": "Your biggest spending category this month was {{category}}, at <amount>{{amount}}</amount> ({{percentage}} of your spending).",
-      "dominantFixedCost": "{{fixedCategory}} makes up {{fixedPercentage}} of your month. Excluding it, your biggest expense was {{category}}, at <amount>{{amount}}</amount>."
+      "dominantFixedCost": "{{fixedCategory}} makes up {{fixedPercentage}} of your month. Excluding it, your biggest expense was {{category}}, at <amount>{{amount}}</amount>.",
+      "analysing": "Analyzing your transactions...",
+      "rerun": "Analyze again"
     }
   },
   "transactionList": {
