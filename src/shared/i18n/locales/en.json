@@ -1,0 +1,13 @@
+{
+  "app": {
+    "menu": {
+      "close": "Close menu",
+      "profile": "Profile",
+      "language": "Language"
+    },
+    "language": {
+      "es": "Spanish",
+      "en": "English"
+    }
+  }
+}
